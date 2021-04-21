@@ -2,8 +2,8 @@
 #include "print.h"
 #include "debug.h"
 
-#include "ch.h"
-#include "hal.h"
+#include <ch.h>
+#include <hal.h>
 
 #ifdef QWIIC_MICRO_OLED_ENABLE
 #include "micro_oled.h"
@@ -380,7 +380,7 @@ void matrix_init_kb(void)
 }
 
 
-void matrix_scan_kb(void) {
+void housekeeping_task_kb(void) {
   rtcGetTime(&RTCD1, &last_timespec);
   uint16_t minutes_since_midnight = last_timespec.millisecond / 1000 / 60;
 
